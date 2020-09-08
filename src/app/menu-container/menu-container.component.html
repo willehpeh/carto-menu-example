@@ -1,0 +1,10 @@
+<mat-tab-group
+  *ngIf="menuConfig$ | async as menuConfig"
+  [ngClass]="{ 'left': side === 'left', 'right': side === 'right' }">
+  <mat-tab *ngFor="let panel of menuConfig.panels" [label]="panel.title">
+    <app-menu-panel-grid *ngIf="panel.config.mode === 'grid'"></app-menu-panel-grid>
+    <app-menu-panel-select *ngIf="panel.config.mode === 'select'"></app-menu-panel-select>
+  </mat-tab>
+  <mat-tab *ngIf="menuConfig.config" label="Config"></mat-tab>
+  <mat-tab *ngIf="menuConfig.help" label="Help"></mat-tab>
+</mat-tab-group>
