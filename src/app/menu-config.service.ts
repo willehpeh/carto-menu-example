@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, defer, of, Subject } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class MenuConfigService {
@@ -47,5 +48,9 @@ export class MenuConfigService {
       config: true,
       help: false
     });
+  }
+
+  getMockHttpData() {
+    return defer(() => of('Hello').pipe(delay(1000)));
   }
 }
