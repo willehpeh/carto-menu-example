@@ -50,7 +50,7 @@ export class MenuConfigService {
     });
   }
 
-  getMockHttpData() {
-    return defer(() => of('Hello').pipe(delay(1000)));
+  getMockHttpData(data: any) {
+    return defer(() => of(data).pipe(delay(1000)));
   }
 }
